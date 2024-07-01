@@ -1,0 +1,13 @@
+@host=https://localhost
+@port=57679
+
+// adiciona um acúmulo.
+POST {{host}}:{{port}}/Accrual
+Content-Type: application/json
+
+{
+  "memberNumber": "81085707412",
+  "amount": "100",
+  "partner": "gpa",
+  "accrualDate": "2024-06-27"
+}
