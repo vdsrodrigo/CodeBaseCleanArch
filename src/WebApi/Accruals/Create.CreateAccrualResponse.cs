@@ -1,4 +1,4 @@
-﻿namespace WebApi.Accrual;
+﻿namespace WebApi.Accruals;
 
 public class CreateAccrualResponse(int id, string memberNumber)
 {

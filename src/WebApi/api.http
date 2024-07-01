@@ -11,3 +11,9 @@ Content-Type: application/json
   "partner": "gpa",
   "accrualDate": "2024-06-27"
 }
+
+###
+
+// Deletar um acúmulo.
+@id_to_delete=1
+DELETE {{host}}:{{port}}/Accruals/{{id_to_delete}}

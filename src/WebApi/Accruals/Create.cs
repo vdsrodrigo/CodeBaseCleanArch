@@ -1,9 +1,10 @@
-﻿using Application.UseCases.Accrual.Create;
+﻿using Application.Accruals.Create;
+using Domain.AccrualAggregate;
 using Domain.Shared;
 using FastEndpoints;
 using MediatR;
 
-namespace WebApi.Accrual;
+namespace WebApi.Accruals;
 
 public class Create(IMediator mediator) : Endpoint<CreateAccrualRequest, CreateAccrualResponse>
 {
@@ -21,7 +22,8 @@ public class Create(IMediator mediator) : Endpoint<CreateAccrualRequest, CreateA
                 MemberNumber = "32425399978",
                 Partner = Partner.GrupoPao,
                 Amount = 100,
-                AccrualDate = DateTime.UtcNow
+                AccrualDate = DateTime.UtcNow,
+                PhoneNumber = "5511928645095"
             };
         });
     }
@@ -30,7 +32,7 @@ public class Create(IMediator mediator) : Endpoint<CreateAccrualRequest, CreateA
     {
         var result =
             await mediator.Send(
-                new CreateAccrualCommand(request.MemberNumber, request.Amount, request.AccrualDate, request.Partner),
+                new CreateAccrualCommand(request.MemberNumber, request.Amount, request.AccrualDate, request.Partner, request.PhoneNumber),
                 cancellationToken);
 
         if (result.IsSuccess)

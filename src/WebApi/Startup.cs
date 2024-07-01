@@ -1,7 +1,11 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
-using Application.UseCases.Accrual.Create;
+using Application.Accruals.Create;
+using Application.Accruals.Delete;
 using Ardalis.SharedKernel;
+using Domain.AccrualAggregate;
+using Domain.Interfaces;
+using Domain.Services;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
@@ -26,7 +30,8 @@ public class Startup(IConfiguration configuration) : IStartup
             .SwaggerDocument(o => { o.ShortSchemaNames = true; });
 
         ConfigureMediatR(services);
-
+        services.AddScoped<IDeleteAccrualService, DeleteAccrualService>();
+        
         services.AddInfrastructureServices(Configuration);
     }
 
@@ -51,10 +56,11 @@ public class Startup(IConfiguration configuration) : IStartup
     private void ConfigureMediatR(IServiceCollection services)
     {
         var mediatRAssemblies = new[]
-        {
-            Assembly.GetAssembly(typeof(Domain.AccrualAggregate.Accrual)), // Core
-            Assembly.GetAssembly(typeof(CreateAccrualCommand)) // UseCases
+        { 
+            Assembly.GetAssembly(typeof(Accrual)), //Core
+            Assembly.GetAssembly(typeof(CreateAccrualCommand))// UseCases
         };
+        
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies!));
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         services.AddScoped<IDomainEventDispatcher, MediatRDomainEventDispatcher>();

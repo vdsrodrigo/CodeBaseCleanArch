@@ -48,5 +48,13 @@ public class AccrualConfiguration : IEntityTypeConfiguration<Accrual>
                 x => x.ToString(),
                 x => (Partner)Enum.Parse(typeof(Partner), x)
             );
+        
+        builder.Property((p => p.PhoneNumber))
+            .HasColumnName("phone_number")
+            .HasColumnType("varchar(20)")
+            .HasConversion(
+                x => x.GetFullNumber(),
+                x => new PhoneNumber(string.Empty, string.Empty, x)
+            );
     }
 }
