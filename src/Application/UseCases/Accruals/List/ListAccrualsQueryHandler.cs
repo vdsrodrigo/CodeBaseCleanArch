@@ -1,7 +1,7 @@
 using Ardalis.Result;
 using Ardalis.SharedKernel;
 
-namespace Application.Accruals.List;
+namespace Domain.UseCases.Accruals.List;
 
 public class ListAccrualsQueryHandler(IListAccrualsQueryService query) : IQueryHandler<ListAccrualsQuery, Result<IEnumerable<AccrualDTO>>>
 {

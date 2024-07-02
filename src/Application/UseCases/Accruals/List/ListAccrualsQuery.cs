@@ -1,6 +1,6 @@
 using Ardalis.Result;
 using Ardalis.SharedKernel;
 
-namespace Application.Accruals.List;
+namespace Domain.UseCases.Accruals.List;
 
 public record ListAccrualsQuery(int? skip, int? take) : IQuery<Result<IEnumerable<AccrualDTO>>>;

@@ -2,15 +2,15 @@ using Ardalis.Result;
 using Ardalis.SharedKernel;
 using Domain.Interfaces;
 
-namespace Application.Accruals.Delete;
+namespace Domain.UseCases.Accruals.Delete;
 
 public class DeleteAccrualCommandHandler(IDeleteAccrualService deleteAccrualService)
     : ICommandHandler<DeleteAccrualCommand, Result>
 {
     public Task<Result> Handle(DeleteAccrualCommand request, CancellationToken cancellationToken)
     {
-        // Esta abordagem mantem eventos de domínio no modelo de domínio (projeto Core), aqui torna-se um repasse
-        // Prefira usar o serviço para que o comportamento do evento **domínio** permaneça no modelo **domínio** (projeto Core)
+        // Esta abordagem mantem eventos de domínio no modelo de domínio (projeto Application), aqui torna-se um repasse
+        // Prefira usar o serviço para que o comportamento do evento **domínio** permaneça no modelo **domínio** (projeto Application)
         return deleteAccrualService.DeleteAccrual(request.AccrualId);
 
         // Outra abordagem: Faça o trabalho aqui, incluindo o envio de eventos de domínio - altere o evento de interno para público

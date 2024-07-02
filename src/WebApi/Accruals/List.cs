@@ -1,6 +1,6 @@
-using Application.Accruals;
-using Application.Accruals.List;
 using Ardalis.Result;
+using Domain.UseCases.Accruals;
+using Domain.UseCases.Accruals.List;
 using FastEndpoints;
 using MediatR;
 

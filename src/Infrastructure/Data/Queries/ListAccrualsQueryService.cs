@@ -1,5 +1,5 @@
-using Application.Accruals;
-using Application.Accruals.List;
+using Domain.UseCases.Accruals;
+using Domain.UseCases.Accruals.List;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data.Queries;

@@ -4,9 +4,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Domain.AccrualAggregate.Handlers;
 
-/// <summary>
-/// NOTE: Internal porque AccrualDeletedEvent também está marcado como internal.
-/// </summary>
 internal class AccrualDeletedHandler(ILogger<AccrualDeletedHandler> logger) : INotificationHandler<AccrualDeletedEvent>
 {
 

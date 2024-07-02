@@ -1,10 +1,9 @@
-using Application.Accruals.Create;
 using Ardalis.Result;
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
 using Domain.AccrualAggregate.Specifications;
 
-namespace Application.Accruals.Get;
+namespace Domain.UseCases.Accruals.Get;
 
 /// <summary>
 /// As Queries não precisam necessariamente usar métodos de repositório, mas podem se for conveniente.

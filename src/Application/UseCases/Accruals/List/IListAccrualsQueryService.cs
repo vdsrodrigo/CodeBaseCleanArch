@@ -1,4 +1,4 @@
-namespace Application.Accruals.List;
+namespace Domain.UseCases.Accruals.List;
 
 public interface IListAccrualsQueryService
 {

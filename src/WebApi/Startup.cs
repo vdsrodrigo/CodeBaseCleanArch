@@ -1,12 +1,11 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
-using Application.Accruals.Create;
-using Application.Accruals.Delete;
-using Application.Accruals.List;
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
 using Domain.Interfaces;
 using Domain.Services;
+using Domain.UseCases.Accruals.Create;
+using Domain.UseCases.Accruals.List;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
@@ -60,7 +59,7 @@ public class Startup(IConfiguration configuration) : IStartup
     {
         var mediatRAssemblies = new[]
         { 
-            Assembly.GetAssembly(typeof(Accrual)), //Core
+            Assembly.GetAssembly(typeof(Accrual)), //Application
             Assembly.GetAssembly(typeof(CreateAccrualCommand))// UseCases
         };
         

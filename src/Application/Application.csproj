@@ -8,13 +8,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ardalis.SharedKernel" Version="1.5.0" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="Ardalis.Result">
         <HintPath>..\..\..\..\.nuget\packages\ardalis.result\9.1.0\lib\net8.0\Ardalis.Result.dll</HintPath>
       </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain\Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UseCases\" />
     </ItemGroup>
 
 </Project>

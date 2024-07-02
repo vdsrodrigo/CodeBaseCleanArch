@@ -2,7 +2,7 @@ using Ardalis.Result;
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
 
-namespace Application.Accruals.Update;
+namespace Domain.UseCases.Accruals.Update;
 
 public class UpdateAccrualCommandHandler(IRepository<Accrual> repository) : ICommandHandler<UpdateAccrualCommand, Result<AccrualDTO>>
 {

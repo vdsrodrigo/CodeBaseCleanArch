@@ -1,5 +1,5 @@
-using Application.Accruals.Delete;
 using Ardalis.Result;
+using Domain.UseCases.Accruals.Delete;
 using FastEndpoints;
 using MediatR;
 

@@ -1,6 +1,6 @@
 using Ardalis.Result;
 using Ardalis.SharedKernel;
 
-namespace Application.Accruals.Delete;
+namespace Domain.UseCases.Accruals.Delete;
 
 public record DeleteAccrualCommand(int AccrualId) : ICommand<Result>;

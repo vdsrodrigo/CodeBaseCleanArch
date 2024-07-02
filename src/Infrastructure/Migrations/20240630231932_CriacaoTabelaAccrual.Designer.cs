@@ -25,7 +25,7 @@ namespace Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Core.AccrualAggregate.Accrual", b =>
+            modelBuilder.Entity("Application.AccrualAggregate.Accrual", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

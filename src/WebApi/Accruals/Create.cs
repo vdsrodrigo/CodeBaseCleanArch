@@ -1,6 +1,6 @@
-﻿using Application.Accruals.Create;
-using Domain.AccrualAggregate;
+﻿using Domain.AccrualAggregate;
 using Domain.Shared;
+using Domain.UseCases.Accruals.Create;
 using FastEndpoints;
 using MediatR;
 

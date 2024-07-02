@@ -1,9 +1,8 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Domain.AccrualAggregate;
 using Domain.Shared;
 
-namespace Application.Accruals.Create;
+namespace Domain.UseCases.Accruals.Create;
 
 /// <summary>
 /// Cria um novo acúmulo

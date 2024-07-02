@@ -2,7 +2,7 @@
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
 
-namespace Application.Accruals.Create;
+namespace Domain.UseCases.Accruals.Create;
 
 public class CreateAccrualCommandHandler(IRepository<Accrual> repository)
     : ICommandHandler<CreateAccrualCommand, Result<int>>
