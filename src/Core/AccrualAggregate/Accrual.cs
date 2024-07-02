@@ -20,6 +20,11 @@ public class Accrual(string memberNumber, int amount, DateTime accrualDate, Part
     {
         PhoneNumber = new PhoneNumber(string.Empty, string.Empty, phoneNumber);
     }
+    
+    public void UpdateAmount(int newAmount)
+    {
+        Amount = Guard.Against.NegativeOrZero(newAmount, nameof(newAmount));
+    }
 }
 
 public class PhoneNumber(

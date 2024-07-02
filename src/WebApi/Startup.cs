@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using Application.Accruals.Create;
 using Application.Accruals.Delete;
+using Application.Accruals.List;
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
 using Domain.Interfaces;
@@ -9,6 +10,7 @@ using Domain.Services;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
+using Infrastructure.Data.Queries;
 using MediatR;
 
 namespace WebApi;
@@ -29,10 +31,11 @@ public class Startup(IConfiguration configuration) : IStartup
         services.AddFastEndpoints()
             .SwaggerDocument(o => { o.ShortSchemaNames = true; });
 
+        services.AddInfrastructureServices(Configuration);
+        
         ConfigureMediatR(services);
         services.AddScoped<IDeleteAccrualService, DeleteAccrualService>();
-        
-        services.AddInfrastructureServices(Configuration);
+        services.AddScoped<IListAccrualsQueryService, ListAccrualsQueryService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
