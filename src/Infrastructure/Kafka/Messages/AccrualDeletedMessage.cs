@@ -1,3 +1,3 @@
 namespace Infrastructure.Kafka.Messages;
 
-public record AccrualDeletedMessage(int Id, string MemberNumber, DateTime DeletedAt);
+public record AccrualDeletedMessage(int Id, DateTime DeletedAt);

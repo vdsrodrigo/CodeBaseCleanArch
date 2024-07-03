@@ -2,15 +2,12 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
-using Domain.Interfaces;
+using Domain.AccrualAggregate.Interfaces;
 using Domain.Services;
 using Domain.UseCases.Accruals.Create;
-using Domain.UseCases.Accruals.List;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
-using Infrastructure.Config;
-using Infrastructure.Data.Queries;
 using MediatR;
 
 namespace WebApi;
@@ -35,11 +32,6 @@ public class Startup(IConfiguration configuration) : IStartup
         
         ConfigureMediatR(services);
         services.AddScoped<IDeleteAccrualService, DeleteAccrualService>();
-        services.AddScoped<IListAccrualsQueryService, ListAccrualsQueryService>();
-        
-        var kafkaConfig = new KafkaConfig();
-        Configuration.GetSection("Kafka").Bind(kafkaConfig);
-        services.AddSingleton(kafkaConfig);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -76,7 +68,6 @@ public class Startup(IConfiguration configuration) : IStartup
 
 public interface IStartup
 {
-    IConfiguration Configuration { get; }
     void ConfigureServices(IServiceCollection services);
     void Configure(IApplicationBuilder app, IWebHostEnvironment env);
 }

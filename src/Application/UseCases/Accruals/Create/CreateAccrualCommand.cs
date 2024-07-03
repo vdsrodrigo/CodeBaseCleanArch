@@ -11,4 +11,17 @@ namespace Domain.UseCases.Accruals.Create;
 /// <param name="Amount"></param>
 /// <param name="Partner"></param>
 /// <param name="PhoneNumber"></param>
-public record CreateAccrualCommand(string MemberNumber, int Amount, DateTime AccrualDate, Partner Partner, string? PhoneNumber) : ICommand<Result<int>>;
+public class CreateAccrualCommand(
+    string memberNumber,
+    int amount,
+    DateTime accrualDate,
+    Partner partner,
+    string? phoneNumber)
+    : ICommand<Result<int>>
+{
+    public string MemberNumber { get; } = memberNumber;
+    public int Amount { get; } = amount;
+    public DateTime AccrualDate { get; } = accrualDate;
+    public Partner Partner { get; } = partner;
+    public string? PhoneNumber { get; } = phoneNumber;
+}

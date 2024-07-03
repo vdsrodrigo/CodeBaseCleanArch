@@ -2,7 +2,7 @@ using Ardalis.Result;
 using Ardalis.SharedKernel;
 using Domain.AccrualAggregate;
 using Domain.AccrualAggregate.Events;
-using Domain.Interfaces;
+using Domain.AccrualAggregate.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -13,7 +13,7 @@ public class DeleteAccrualService(IRepository<Accrual> repository, IMediator med
     public async Task<Result> DeleteAccrual(int accrualId)
     {
         logger.LogInformation("Deleting Accrual {accrualId}", accrualId);
-        Accrual? accrualToDelete = await repository.GetByIdAsync(accrualId);
+        var accrualToDelete = await repository.GetByIdAsync(accrualId);
         if (accrualToDelete == null) return Result.NotFound();
 
         await repository.DeleteAsync(accrualToDelete);

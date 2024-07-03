@@ -1,6 +1,6 @@
 using Ardalis.Result;
 using Ardalis.SharedKernel;
-using Domain.Interfaces;
+using Domain.AccrualAggregate.Interfaces;
 
 namespace Domain.UseCases.Accruals.Delete;
 

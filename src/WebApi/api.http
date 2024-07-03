@@ -1,19 +1,30 @@
 @host=https://localhost
 @port=57679
 
-// adiciona um acúmulo.
+// Listar todos os acúmulos
+GET {{host}}:{{port}}/Accruals
+
+###
+
+// Obter um acúmulo específico
+@id_to_get=11
+GET {{host}}:{{port}}/Accruals/{{id_to_get}}
+
+###
+// adicionar um acúmulo.
 POST {{host}}:{{port}}/Accrual
 Content-Type: application/json
 
 {
   "memberNumber": "81085707412",
   "amount": "100",
-  "partner": "gpa",
-  "accrualDate": "2024-06-27"
+  "partner": "GrupoPao",
+  "accrualDate": "2024-07-03T03:44:46.6445318Z",
+  "PhoneNumber": "11999999999"
 }
 
 ###
 
 // Deletar um acúmulo.
-@id_to_delete=1
+@id_to_delete=13
 DELETE {{host}}:{{port}}/Accruals/{{id_to_delete}}

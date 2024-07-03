@@ -69,9 +69,11 @@ services:
               echo -e 'Aguardando Kafka subir com sucesso...'
               kafka-topics --bootstrap-server kafka:29092 --list
 
-              kafka-topics --create --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --topic transactions.accrual.created
+              kafka-topics --create --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --topic transactions.accrual.create
               kafka-topics --create --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --topic transactions.redeem.created
               kafka-topics --create --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --topic connect.transactions.accrual
+              kafka-topics --create --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --topic transactions.accrual.deleted
+              kafka-topics --create --bootstrap-server kafka:29092 --partitions 1 --replication-factor 1 --topic transactions.accrual.create.dlq
 
               echo -e 'Criados os seguintes topicos com sucesso:'
               kafka-topics --bootstrap-server kafka:29092 --list

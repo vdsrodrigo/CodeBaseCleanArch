@@ -1,6 +1,6 @@
 using Ardalis.Result;
 
-namespace Domain.Interfaces;
+namespace Domain.AccrualAggregate.Interfaces;
 
 public interface IDeleteAccrualService
 {

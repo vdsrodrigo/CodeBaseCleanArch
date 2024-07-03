@@ -12,4 +12,8 @@
       <PackageReference Include="Ardalis.SharedKernel" Version="1.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="AccrualAggregate\Handlers\" />
+    </ItemGroup>
+
 </Project>
