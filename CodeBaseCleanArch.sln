@@ -12,6 +12,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0BB8A7B5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Domain\Core\Core.csproj", "{94B3F537-A454-43CF-830E-6B68F68A6D4A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A435CA6B-E458-4851-AE36-C850B2840D4E}"
+	ProjectSection(SolutionItems) = preProject
+		Solutions Items\infra-up.sh = Solutions Items\infra-up.sh
+		Solutions Items\cdc-kafka-connect\transactions-conector.json = Solutions Items\cdc-kafka-connect\transactions-conector.json
+		Solutions Items\cdc-kafka-connect\transactions-conector.sh = Solutions Items\cdc-kafka-connect\transactions-conector.sh
+		Solutions Items\cdc-kafka-connect\Dockerfile = Solutions Items\cdc-kafka-connect\Dockerfile
+		Solutions Items\cdc-kafka-connect\dockerizar-kafka-connect.sh = Solutions Items\cdc-kafka-connect\dockerizar-kafka-connect.sh
+		Solutions Items\cdc-kafka-connect\transactions-remover.sh = Solutions Items\cdc-kafka-connect\transactions-remover.sh
+		Solutions Items\infra-down.sh = Solutions Items\infra-down.sh
+		Solutions Items\docker-compose.yml = Solutions Items\docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
