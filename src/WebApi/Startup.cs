@@ -9,6 +9,7 @@ using Domain.UseCases.Accruals.List;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
+using Infrastructure.Config;
 using Infrastructure.Data.Queries;
 using MediatR;
 
@@ -35,6 +36,10 @@ public class Startup(IConfiguration configuration) : IStartup
         ConfigureMediatR(services);
         services.AddScoped<IDeleteAccrualService, DeleteAccrualService>();
         services.AddScoped<IListAccrualsQueryService, ListAccrualsQueryService>();
+        
+        var kafkaConfig = new KafkaConfig();
+        Configuration.GetSection("Kafka").Bind(kafkaConfig);
+        services.AddSingleton(kafkaConfig);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

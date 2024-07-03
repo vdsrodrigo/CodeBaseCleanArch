@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Config;
 
-public class AccrualConfiguration : IEntityTypeConfiguration<Accrual>
+public class AccrualConfig : IEntityTypeConfiguration<Accrual>
 {
     public void Configure(EntityTypeBuilder<Accrual> builder)
     {

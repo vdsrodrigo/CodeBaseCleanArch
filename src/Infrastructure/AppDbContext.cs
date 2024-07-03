@@ -12,7 +12,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options, IDomainEventDi
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AccrualConfiguration).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AccrualConfig).Assembly);
     }
     
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())

@@ -2,7 +2,7 @@ using Domain.AccrualAggregate.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Domain.AccrualAggregate.Handlers;
+namespace Domain.Handlers;
 
 internal class AccrualDeletedHandler(ILogger<AccrualDeletedHandler> logger) : INotificationHandler<AccrualDeletedEvent>
 {
