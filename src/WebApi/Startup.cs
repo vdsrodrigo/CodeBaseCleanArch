@@ -33,8 +33,8 @@ public class Startup(IConfiguration configuration) : IStartup
         ConfigureMediatR(services);
         services.AddScoped<IDeleteAccrualService, DeleteAccrualService>();
     }
-
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<IStartup> logger)
     {
         if (env.IsDevelopment())
         {
@@ -45,6 +45,9 @@ public class Startup(IConfiguration configuration) : IStartup
             app.UseDefaultExceptionHandler(); // from FastEndpoints
             app.UseHsts();
         }
+        
+        app.ConfigureExceptionHandler(logger);
+
 
         app.UseFastEndpoints(config => config.Serializer.Options.Converters.Add(new JsonStringEnumConverter()))
             .UseSwaggerGen(); // Includes AddFileServer and static files middleware
@@ -69,7 +72,7 @@ public class Startup(IConfiguration configuration) : IStartup
 public interface IStartup
 {
     void ConfigureServices(IServiceCollection services);
-    void Configure(IApplicationBuilder app, IWebHostEnvironment env);
+    void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<IStartup> logger);
 }
 
 public static class StartupExtensions
@@ -82,7 +85,7 @@ public static class StartupExtensions
 
         startup.ConfigureServices(builder.Services);
         var app = builder.Build();
-        startup.Configure(app, builder.Environment);
+        startup.Configure(app, builder.Environment, app.Services.GetRequiredService<ILogger<IStartup>>());
         app.Run();
         return builder;
     }
