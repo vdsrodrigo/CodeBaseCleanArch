@@ -6,7 +6,7 @@ namespace WebApi.Accruals;
 
 public struct CreateAccrualRequest
 {
-    public const string Route = "/Accrual";
+    public const string Route = "/accrual";
 
     public string MemberNumber { get; set; }
     public int Amount { get; set; }

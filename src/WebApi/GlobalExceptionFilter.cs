@@ -34,7 +34,7 @@ public static class GlobalExceptionFilter
                         break;
                     default:
                         context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                        errorResponse.Title = "Teste 500 - Internal Server Error";
+                        errorResponse.Title = "Internal Server Error";
                         errorResponse.Message = exception.Message;
                         break;
                 }

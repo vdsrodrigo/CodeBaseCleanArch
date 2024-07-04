@@ -10,7 +10,7 @@ public class List(IMediator mediator) : EndpointWithoutRequest<AccrualListRespon
 {
     public override void Configure()
     {
-        Get("/Accruals");
+        Get("/accruals");
         AllowAnonymous();
     }
     
